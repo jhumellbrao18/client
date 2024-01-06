@@ -1,5 +1,5 @@
 // pages/Login.tsx
-
+import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "./authContext";
@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <div className="flex flex-col m-10 sm:flex-row bg-white border-2 border-black rounded-lg">
       <div className="w-1/2 p-6 flex items-center justify-center m-auto">
-        <img src="/Coder.svg" alt="SVG Image" />
+        <Image src="/Coder.svg" alt="SVG Image" width={500} height={300} />
       </div>
       <div className="w-full sm:w-1/2 p-6 flex items-center m-auto">
         <div className="w-full max-w-md mx-auto p-8 border rounded-lg bg-white shadow-md">
