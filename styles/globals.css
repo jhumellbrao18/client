@@ -16,8 +16,6 @@ body {
   align-items: center;
 }
 
-
-
 @keyframes fallIn {
   from {
     opacity: 0;
