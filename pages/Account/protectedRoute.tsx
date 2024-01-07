@@ -2,20 +2,17 @@
 
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useAuth } from "./authContext"; 
+import { useAuth } from "../../context/authContext";
 
 const ProtectedRoute = (WrappedComponent: React.FC) => {
   const Component: React.FC = (props) => {
     const router = useRouter();
-    const { isLoggedIn, logout } = useAuth(); 
+    const { isLoggedIn, logout } = useAuth();
 
     useEffect(() => {
-      
       if (!isLoggedIn) {
-      
         router.replace("/Account/SignIn");
       } else {
-      
         router.beforePopState(() => {
           router.replace("/Account/SignIn");
           return false;

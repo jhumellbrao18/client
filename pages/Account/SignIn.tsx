@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { useAuth } from "./authContext";
+import { useAuth } from "../../context/authContext";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

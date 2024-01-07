@@ -12,7 +12,7 @@ const defaultAuthContext: AuthContextProps = {
   logout: () => {},
 };
 
-const AuthContext = createContext<AuthContextProps>(defaultAuthContext);
+export const AuthContext = createContext<AuthContextProps>(defaultAuthContext);
 
 interface AuthProviderProps {
   children: ReactNode;

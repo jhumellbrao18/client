@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useAuth } from "../Account/authContext";
+import { useAuth } from "../../context/authContext";
 import ProtectedRoute from "../Account/protectedRoute";
 interface Territory {
   id: string;
@@ -59,34 +59,36 @@ function TerritoriesAll() {
       return orderedNames.indexOf(a.name) - orderedNames.indexOf(b.name);
     });
 
-return (
-  <ul className="tree">
-    {orderedTerritories.map((territory) => (
-      <li key={territory.id}>
-        <span className="nodeMain">{territory.name}</span>
-        {territory.children && territory.children.length > 0 && (
-          <ul className="sub-tree">
-            {territory.children.map((childTerritory) => (
-              <li key={childTerritory.id}>
-                <span className="nodeChild">{childTerritory.name}</span>
-                {childTerritory.children &&
-                  childTerritory.children.length > 0 && (
-                    <ul className="sub-tree">
-                      {childTerritory.children.map((subChildTerritory) => (
-                        <li key={subChildTerritory.id}>
-                          <span className="nodeGrandChild">{subChildTerritory.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-    ))}
-  </ul>
-);
+    return (
+      <ul className="tree">
+        {orderedTerritories.map((territory) => (
+          <li key={territory.id}>
+            <span className="nodeMain">{territory.name}</span>
+            {territory.children && territory.children.length > 0 && (
+              <ul className="sub-tree">
+                {territory.children.map((childTerritory) => (
+                  <li key={childTerritory.id}>
+                    <span className="nodeChild">{childTerritory.name}</span>
+                    {childTerritory.children &&
+                      childTerritory.children.length > 0 && (
+                        <ul className="sub-tree">
+                          {childTerritory.children.map((subChildTerritory) => (
+                            <li key={subChildTerritory.id}>
+                              <span className="nodeGrandChild">
+                                {subChildTerritory.name}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
