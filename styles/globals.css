@@ -49,7 +49,6 @@ body {
   padding-top: 100px;
   position: relative;
   transition: 5s;
-  
   right: 0px;
   animation: fallIn 2s ease-in-out forwards;
 }
