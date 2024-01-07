@@ -6,9 +6,9 @@ const Index = () => {
 
   useEffect(() => {
     router.push("/Account/SignIn");
-  }, []);
+  }, [router]); // Added router to the dependency array
 
-  return null; 
+  return null;
 };
 
 export default Index;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../../context/authContext";
 import ProtectedRoute from "../Account/protectedRoute";
+
 interface Territory {
   id: string;
   name: string;
@@ -34,22 +35,24 @@ function TerritoriesAll() {
     return tree;
   }
 
+  async function fetchData() {
+    try {
+      const response = await fetch("/api/territories");
+      const data = await response.json();
+      const flatList: Territory[] = data.data;
+      const hierarchicalData = arrangeTerritories(flatList);
+      setTerritories(hierarchicalData);
+      setMessage("");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setMessage("Failed to fetch data");
+    }
+  }
   useEffect(() => {
     if (!isLoggedIn) {
       router.replace("/Account/SignIn");
     } else {
-      fetch("http://localhost:8080/Territories/All")
-        .then((response) => response.json())
-        .then((data) => {
-          const flatList: Territory[] = data.data;
-          const hierarchicalData = arrangeTerritories(flatList);
-          setTerritories(hierarchicalData);
-          setMessage("");
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-          setMessage("Failed to fetch data");
-        });
+      fetchData();
     }
   }, [isLoggedIn, router]);
 
