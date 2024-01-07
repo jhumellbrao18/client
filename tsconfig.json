@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/territories.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "api/territories.ts"],
   "exclude": ["node_modules"]
 }
