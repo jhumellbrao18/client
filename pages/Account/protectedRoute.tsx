@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../auth/authContext";
 
 const ProtectedRoute = (WrappedComponent: React.FC) => {
   const Component: React.FC = (props) => {

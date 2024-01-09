@@ -24,6 +24,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = (username: string, password: string) => {
     if (username === "foo" && password === "bar") {
       setIsLoggedIn(true);
+    } else {
+      throw new Error("Incorrect username or password"); 
     }
   };
 

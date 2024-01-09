@@ -28,13 +28,13 @@ body {
   from {
     opacity: 0;
     transform: translateY(-50px);
-    /* Initial position above */
+
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
-    /* Final position at normal position */
+
   }
 }
 .tree {
@@ -49,7 +49,6 @@ body {
   padding-top: 100px;
   position: relative;
   transition: 5s;
-  right: 0px;
   animation: fallIn 2s ease-in-out forwards;
 }
 .tree li {
@@ -79,13 +78,6 @@ body {
   border-left: 2px solid #ff9292;
 }
 
-
-/* .tree li:only-child:after,  .tree li:only-child:before {
-  display: none;
-} */
-/* .tree li:only-child {
-  padding-top: 0;
-} */
 
 .tree li:first-child:before, .tree li:last-child:after {
   border: 0 none;
@@ -126,64 +118,80 @@ body {
   box-shadow: 0px 0px 8px 5px #e1e1e1;
 
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .tree ul {
     padding-top: 50px;
-    /* Adjust spacing between tree levels */
+  }
+  .tree li {
+    padding: 5px;
+  }
+} */
+
+
+@media (max-width: 768px) {
+  .tree ul {
+    padding-top: 40px;
+    /* Adjust spacing for smaller screens */
   }
 
   .tree li {
-    padding: 5px;
-    /* Reduce padding around tree nodes */
+ 
+    /* Change display type for smaller screens */
+    text-align: center;
+    /* Adjust text alignment for smaller screens */
+    padding: 8px;
+    /* Adjust padding for smaller screens */
+    margin: 8px 0;
   }
 
+ .tree li:before,
+ .tree li:after {
+   top: -20px;
+   /* Adjust top positioning for smaller screens */
+   border-top-width: 1px;
+   /* Adjust border width for smaller screens */
+   width: 45%;
+   /* Adjust width for smaller screens */
+ }
 
-}
 
 
-/* .node {
-  padding: 8px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  margin: 4px 0;
-  display: inline-block;
-  background-color: #f0f0f0;
-} */
-/* 
-.node {
-  position: relative;
-  padding:12px;
+ .tree li:last-child:before {
+   border-right-width: 1px;
+   /* Adjust border width for smaller screens */
+   border-radius: 0;
+   /* Adjust border radius for smaller screens */
+ }
 
-  border: 2px solid #000;
-  border-radius: 8px;
-  margin-bottom: 30px;
+ .tree li:first-child:after {
+   border-left-width: 1px;
+   /* Adjust border width for smaller screens */
+   border-radius: 0;
+   /* Adjust border radius for smaller screens */
+ }
 
-  background-color: #f0f0f0;
-  width: fit-content;
-}
+ .tree ul ul:before {
+   display: none;
+   /* Hide this pseudo-element for smaller screens if needed */
+ }
 
-.node::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-
-  left: 50%;
-  border-left: 2px solid #000;
-  height: calc(50% + 18px);
-}
-.sub-tree {
-  padding-left:150px;
+    .tree span {
+      font-size: 14px;
+      /* Adjust font size for smaller screens */
+      padding: 6px;
+      /* Adjust padding for smaller screens */
+      /* Other adjustments as needed */
+    }
   
+    .tree li span:hover+ul li span {
+      background: #aaaaaa00;
+      /* Adjust background for smaller screens */
+      color: #1c1c1c;
+      /* Adjust text color for smaller screens */
+      border: 1px solid #94a0b4;
+      /* Adjust border for smaller screens */
+      box-shadow: 0px 0px 8px 5px #e1e1e1;
+      /* Adjust box shadow for smaller screens */
+      /* Other adjustments as needed */
+    }
 }
-
-.sub-tree::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-  left: -18px;
-  border-top: 2px solid #000;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background-color: #fff;
-} */

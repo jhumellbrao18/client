@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../auth/authContext";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ const Login = () => {
       await login(username, password);
 
       router.push("/Territories/All");
-      //   setError("Incorrect username or password");
+      setError("");
     } catch (err) {
       setError("Incorrect username or password");
     }
